@@ -2,6 +2,7 @@ from random import random
 import numpy
 from ProfanityFilter import profanityFilter
 from primeNumbers import primeNumbers, primeNumbersFix
+from pyHash import pyHash
 from zeroCalculator import bisection, regulaFalsi
 
 i = 0
@@ -41,9 +42,14 @@ zero = regulaFalsi(square,-10,10,100)
 # primeNumbersFix(100)
 
 # test parolacce con un filtro (esempio di util da programmare per il proprio portfolio)
-st = "Sedere sedere cACca viga mazzo nerda"
+''' st = "Sedere sedere cACca viga mazzo nerda"
 s = profanityFilter(st,"*")
-print(s)
+print(s) '''
 
+table = pyHash(101)
+for i in range(0,50):
+  table.insert(i)
+
+print(table.read(40))
 
 
