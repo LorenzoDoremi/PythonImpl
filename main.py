@@ -1,0 +1,29 @@
+from random import random
+import numpy
+from zeroCalculator import bisection, regulaFalsi
+
+i = 0
+
+def square(x):
+    return x*x*x - 10 
+# dichiariamo un array di zeri lungo 20 (metodo non bello)
+array = [0] * 20;
+
+#metodo migliore
+array = numpy.zeros(10)
+
+# questo permette di modificare l'array
+for j in range(0,len(array), 1):
+  array[j] = int(random()*100)
+  
+#questo no 
+for a in array:
+  a = random()*100
+
+
+zero = bisection(square,-10,10,100)
+zero = regulaFalsi(square,-10,10,100)
+print(array)
+
+
+
