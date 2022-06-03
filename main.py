@@ -1,5 +1,6 @@
 from random import random
 import numpy
+from ProfanityFilter import profanityFilter
 from primeNumbers import primeNumbers, primeNumbersFix
 from zeroCalculator import bisection, regulaFalsi
 
@@ -37,6 +38,12 @@ zero = regulaFalsi(square,-10,10,100)
 
 # crivello di eratostene
 
-primeNumbersFix(100)
+# primeNumbersFix(100)
+
+# test parolacce con un filtro (esempio di util da programmare per il proprio portfolio)
+st = "Sedere sedere cACca viga mazzo nerda"
+s = profanityFilter(st,"*")
+print(s)
+
 
 
