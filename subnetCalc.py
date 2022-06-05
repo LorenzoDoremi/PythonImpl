@@ -20,7 +20,9 @@ def subnetCalc(a,b,c,d,mask):
     
 
 
-subnetCalc(142,168,2,0, 18)
+# subnetCalc(142,168,2,0, 18)
+
+
 
 
       

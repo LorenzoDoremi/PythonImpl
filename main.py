@@ -19,10 +19,6 @@ matrix = numpy.zeros((10,10))
 
 
 
-m = [2,2,4,432,23545]
-
-
-m.append(2)
 
 
 # questo permette di modificare l'array
@@ -46,10 +42,15 @@ zero = regulaFalsi(square,-10,10,100)
 s = profanityFilter(st,"*")
 print(s) '''
 
+# semplice implementazione di un hashtable
 table = pyHash(101)
 for i in range(0,50):
   table.insert(i)
 
 print(table.read(40))
 
+# list comprehension
+numeri = [x for x in range(10)]
+quadrati = [x*x for x in numeri]
+print(quadrati)
 
