@@ -33,9 +33,9 @@ class Grafo:
     def add_nodo(self, valore):
         self.nodi.append(Nodo(valore))
 
+
+
 # creo n archi tra nodi casuali
-
-
 def rand_connect(grafo: Grafo, connects: int):
     for i in range(0, connects):
         randA = grafo.nodi[int((random()*100) % len(grafo.nodi))]
@@ -45,33 +45,32 @@ def rand_connect(grafo: Grafo, connects: int):
         randA.archiIn.append(a)
         randB.archiOut.append(a)
 
-def f_diff(set1, set2):
-    diff = False
-    for item in set1:
-        if item not in set2:
-            diff = True
-    for item2 in set2:
-        if item2 not in set1:
-            diff = True
-    return diff
+
 
 class disjoint_set():
     
-    def __init__(self, nodi) -> None:
+    def __init__(self, nodi):
      
      self.set = []
+     # per ogni nodo, assegno il suo indice progressivo nell'array
      for i in range(0, len(nodi)):
         nodi[i].s = i
         self.set.append(i)
+     # assegno il corrispondente valore di rank (usato dopo)
      self.rank = numpy.zeros(len(self.set))
-    # trovo l'indice numerico nella lista corrispondente
+
+    # dato un nodo con s iniziale = n
+    # cerco l'indice contenuto nella n-esima casella
+    # se questa punta ad un altro m != n, cerco la m-esima casella
     def find_root(self, nodo):
       
         if self.set[nodo] == nodo:
             return nodo
         else:
             return self.find_root(self.set[nodo])
-
+    
+    # in base al set più grande (determinato da rank)
+    # cambio l'indice della radice del set più piccolo
     def union(self,nodo_a, nodo_b):
 
         a_root = self.find_root(nodo_a.s)
