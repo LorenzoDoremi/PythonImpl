@@ -57,11 +57,17 @@ def simpleArrayPlot(myCanvas : tkinter.Canvas, data):
 
     myCanvas.create_text(50, height/2+50, text='MAX = '+str(int(numpy.max(summary))),)
     myCanvas.create_text(50, height/2+100, text='MEDIA = '+str(int(numpy.average(summary))),)
+
+
+
+
+
+
+
 # create canvas
 width = 1200
 height = 800
 myCanvas = tkinter.Canvas(root, bg="white", height=height, width=width)
-
 simpleArrayPlot(myCanvas, data)
 
 

@@ -20,6 +20,7 @@ def regulaFalsi(func, min, max, iteractions):
     b = max
     # coefficiente angolare della retta
     coeff = (func(b) - func(a))/(b - a)
+    print(str(func(a))+" "+str(func(b))+" "+str(coeff))
     # valore x dello zero della retta
     sec = min + abs(func(min)/coeff)
 
@@ -27,8 +28,10 @@ def regulaFalsi(func, min, max, iteractions):
         return sec
     else:
         if func(a)*func(sec) < 0:
+           # print("LEFT")
             return regulaFalsi(func, a, sec, iteractions - 1)
         else:
+           # print("RIGHT")
             return regulaFalsi(func, sec, b, iteractions - 1)
 
 
