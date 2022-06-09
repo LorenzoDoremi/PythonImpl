@@ -22,10 +22,10 @@ myCanvas = tkinter.Canvas(root, bg="black", height=height, width=width)
 
 weights = ["", "-", "o", "x", "X"]
 i = 0
-sieve = 10
+sieve = 8
 for x in range(0,width,sieve):
  for y in range(0,height,sieve):
-   w = weights[int((int((sum(pixel_values[y*width + x])/3))*len(weights))/255)%len(weights)]
+   w = weights[min(int(((sum(pixel_values[y*width + x])/3)*len(weights))/255), len(weights)-1)]
    myCanvas.create_text(x, y,
                          fill="#ffffff", text=w, font=('Arial',sieve))
 
