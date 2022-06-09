@@ -1,8 +1,10 @@
 from asyncio.windows_events import NULL
 from distutils import archive_util
+from operator import eq
 from random import random
 
 from numpy import true_divide
+import numpy
 
 
 class Nodo:
@@ -10,8 +12,7 @@ class Nodo:
         self.valore = valore
         self.archiIn: Nodo = []
         self.archiOut: Arco = []
-        self.parentSet: set
-
+        self.s = 0
 
 class Arco:
     def __init__(self, nodoA: Nodo, nodoB: Nodo):
@@ -19,7 +20,7 @@ class Arco:
         self.b = nodoB
         self.peso = abs(self.a.valore - self.b.valore)
 
-    def stampaArco(self) -> str:
+    def stampa_arco(self) -> str:
         return str(self.a.valore)+" --> "+str(self.b.valore) + " | " + str(self.peso)
 
 
@@ -29,13 +30,13 @@ class Grafo:
         self.nodi: Nodo = []
         self.archi: Arco = []
 
-    def addNodo(self, valore):
+    def add_nodo(self, valore):
         self.nodi.append(Nodo(valore))
 
 # creo n archi tra nodi casuali
 
 
-def randConnect(grafo: Grafo, connects: int):
+def rand_connect(grafo: Grafo, connects: int):
     for i in range(0, connects):
         randA = grafo.nodi[int((random()*100) % len(grafo.nodi))]
         randB = grafo.nodi[int((random()*100) % len(grafo.nodi))]
@@ -54,12 +55,45 @@ def f_diff(set1, set2):
             diff = True
     return diff
 
+class disjoint_set():
+    
+    def __init__(self, nodi) -> None:
+     
+     self.set = []
+     for i in range(0, len(nodi)):
+        nodi[i].s = i
+        self.set.append(i)
+     self.rank = numpy.zeros(len(self.set))
+    # trovo l'indice numerico nella lista corrispondente
+    def find_root(self, nodo):
+      
+        if self.set[nodo] == nodo:
+            return nodo
+        else:
+            return self.find_root(self.set[nodo])
 
-# dato un grafo, ritorna il set di archi formante il minimum spanning tree (senza utilizzare disjoint sets)
-def minSpanningTree(grafo: Grafo):
+    def union(self,nodo_a, nodo_b):
+
+        a_root = self.find_root(nodo_a.s)
+        b_root = self.find_root(nodo_b.s)
+        if a_root != b_root:
+            if self.rank[a_root] > self.rank[b_root]:
+                self.set[b_root] = a_root
+            elif self.rank[a_root] < self.rank[b_root]:
+                self.set[a_root] = b_root
+            else: 
+               self.set[a_root] = b_root
+               self.rank[a_root] += 1
+            
+
+
+
+
+# dato un grafo, ritorna il set di archi formante il minimum spanning tree
+def min_spanning_tree(grafo: Grafo):
     archi_ordinati = [x for x in grafo.archi]
-    set_archi = set()
-    set_nodi = []
+    set_archi = []
+   
     # ordino gli archi
     for i in archi_ordinati:
         for j in archi_ordinati:
@@ -67,40 +101,29 @@ def minSpanningTree(grafo: Grafo):
                 temp = i
                 i = j
                 j = temp
-
-    for nodo in grafo.nodi:
-        nset = set()
-        nset.add(nodo)
-        nodo.parentSet = nset
-
+    
+    disjoint_s = disjoint_set(grafo.nodi)
     for arco in archi_ordinati:
-        if(f_diff(arco.a.parentSet, arco.b.parentSet) ):
-            
-          
-            
-            arco.a.parentSet = arco.a.parentSet.union(arco.b.parentSet)
-            for node in arco.a.parentSet:
-                node.parentSet = arco.a.parentSet
+     if disjoint_s.find_root(arco.a.s) != disjoint_s.find_root(arco.b.s):
+         disjoint_s.union(arco.a, arco.b)
+         set_archi.append(arco)
 
 
-            set_archi.add(arco)
-            '''  print(list(x.valore for x in arco.a.parentSet), end="  ")
-            print("") '''
+ 
+       
     return set_archi
 
 
 grafo = Grafo()
-for i in range(0, 10):
-    grafo.addNodo(i)
+for i in range(0, 20):
+    grafo.add_nodo(i)
 
-randConnect(grafo, 10)
+rand_connect(grafo, 160)
 
-tree = minSpanningTree(grafo)
+tree:Arco = min_spanning_tree(grafo)
+print(len(tree))
 
-for nodo in grafo.nodi:
-    for set in nodo.parentSet:
-        print(set.valore, end=" - ")
-    print("") 
+
 
 
 
