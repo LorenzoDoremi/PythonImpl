@@ -17,12 +17,12 @@ class BST:
 
     def add_nodo(self, key):
 
-        self.root = self.traverse_add_nodo(self.root, key)
+        self.traverse_add_nodo(self.root, key)
 
     def traverse_add_nodo(self, curr: Nodo, key):
-        if curr is None:
+        if self.root is None:
 
-            return Nodo(key, None, None, None)
+            self.root = Nodo(key, None, None, None)
         elif key > curr.key:
             if curr.right is None:
                 curr.right = Nodo(key, None, None, None)
@@ -35,7 +35,7 @@ class BST:
                 curr.left.parent = curr
             else:
                 self.traverse_add_nodo(curr.left, key)
-        return curr
+      
 
     def in_order(self, curr):
 
