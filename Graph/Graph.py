@@ -1,9 +1,4 @@
-from asyncio.windows_events import NULL
-from distutils import archive_util
-from operator import eq
 from random import random
-
-from numpy import true_divide
 import numpy
 
 
@@ -20,7 +15,7 @@ class Arco:
         self.b = nodoB
         self.peso = abs(self.a.valore - self.b.valore)
 
-    def stampa_arco(self) -> str:
+    def stampa_arco(self):
         return str(self.a.valore)+" --> "+str(self.b.valore) + " | " + str(self.peso)
 
 
