@@ -1,10 +1,10 @@
 from copy import copy
 from random import random
 import numpy
-from ProfanityFilter import profanityFilter
-from primeNumbers import primeNumbers, primeNumbersFix
-from pyHash import pyHash
-from zeroCalculator import bisection, regulaFalsi
+from Profanity_Filter import profanityFilter
+from Prime_Numbers import primeNumbers, primeNumbersFix
+from Py_Hash import pyHash
+from Zero_Calculator import bisection, regulaFalsi
 
 i = 0
 
@@ -19,7 +19,26 @@ def square(x):
 ''' matrix = numpy.zeros((10,10)) '''
 
 
+class user:
+      def __init__(self, age):
+           self.age = age
 
+
+def editUser(l,k):
+      m = user(50)
+      l.age = m.age
+
+a = user(10)
+b = user(50)
+editUser(a,b)
+print(a.age)
+
+
+
+
+
+
+           
 
 
 # questo permette di modificare l'array
@@ -33,8 +52,8 @@ def square(x):
 
 zero = bisection(square,-10,10,100)
 '''
-zero = regulaFalsi(square,-5,0,10) 
-print(zero)
+''' zero = regulaFalsi(square,-5,0,10) 
+print(zero) '''
 # crivello di eratostene
 
 ''' primeNumbersFix(100) '''
@@ -57,5 +76,7 @@ quadrati = copy(numeri)
 print(quadrati)
 numeri[3] = 100
 print(quadrati) '''
+
+
 
 
