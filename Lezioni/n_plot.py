@@ -16,8 +16,8 @@ for i in range(0, 10):
 # conta il numero di occorrenze di una chiave numerica in una lista di dizionari  
 # (ad esempio quanti esami sostenuti dallo studente con un id target) 
 # O(N) temporale ma O(k) spaziale
-def min_max_counter(min,max,data,target):
-      occs = [0 for x in range(0,max-min)]
+def min_max_counter(max,data,target):
+      occs = [0 for x in range(0,max)]
       for el in data:
           occs[el[target]] +=1
       return occs
