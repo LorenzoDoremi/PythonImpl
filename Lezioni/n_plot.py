@@ -36,7 +36,7 @@ axis[1].scatter(aas, bs)
 
 
 
-b_occs = min_max_counter(0,10,data,"b")
+b_occs = min_max_counter(10,data,"b")
 
 print(b_occs)
 
