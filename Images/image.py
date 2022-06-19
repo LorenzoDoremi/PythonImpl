@@ -4,7 +4,7 @@ import tkinter
 
 from numpy import size
 
-
+#questo codice trasforma un'immagine in ASCII
 
 
 im = Image.open('Images/girl.jpg')

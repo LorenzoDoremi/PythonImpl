@@ -4,8 +4,8 @@ import numpy
 from Profanity_Filter import profanityFilter
 from Prime_Numbers import primeNumbers, primeNumbersFix
 from Py_Hash import pyHash
-from Zero_Calculator import bisection, regulaFalsi
-
+from Zero_Calculator import bisection, regula_falsi
+from Integral_Calculator import metodo_rettangoli
 i = 0
 
 def square(x):
@@ -18,7 +18,7 @@ def square(x):
 # matrice 
 ''' matrix = numpy.zeros((10,10)) '''
 
-
+''' 
 class user:
       def __init__(self, age):
            self.age = age
@@ -31,7 +31,7 @@ def editUser(l,k):
 a = user(10)
 b = user(50)
 editUser(a,b)
-print(a.age)
+print(a.age) '''
 
 
 
@@ -52,11 +52,11 @@ print(a.age)
 
 zero = bisection(square,-10,10,100)
 '''
-''' zero = regulaFalsi(square,-5,0,10) 
+''' zero = regula_falsi(square,-5,0,10) 
 print(zero) '''
 # crivello di eratostene
 
-''' primeNumbersFix(100) '''
+primeNumbersFix(100) 
 
 # test parolacce con un filtro (esempio di util da programmare per il proprio portfolio)
 ''' st = "Sedere sedere cACca viga mazzo nerda"
