@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 from random import random
 data = []
-figure, axis = plt.subplots(3, 3)
+figure, axis = plt.subplots(2, 2)
 # creo una lista di dizionari contenenti una transazione economica (come oggetti JSON!)
 # id = id transazione
 # a = primo committente
@@ -44,11 +44,15 @@ b_occs = min_max_counter(10,data,"b")
 
 print(b_occs)
 
-axis[2][0].plot(b_occs)
+axis[0][1].plot(b_occs)
 
 
+soldi = [100,100,20,50,200]
+persone = ["Gianni", "Franco", "Gianni", "Luca", "Andrea"]
+axis[1][1].plot(persone,soldi)
 # metto label, titoli e altro
 axis[0][0].set(xlabel="ID", ylabel="TRANSAZ")
 axis[1][0].set(xlabel="A", ylabel="B", xticks=bs)
-axis[2][0].set(xlabel="B", ylabel="occorrenze", xticks=[x for x in range(0,10)])
+axis[0][1].set(xlabel="B", ylabel="occorrenze", xticks=[x for x in range(0,10)])
+
 plt.show()
