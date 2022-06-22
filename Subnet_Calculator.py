@@ -13,14 +13,15 @@ def subnetCalc(a,b,c,d,mask):
 
     subnets = power(2, mask-bits)
     hosts_per_subnet = power(2, 32 - mask) - 2;
-    hosts = power(2, 32 - mask)*subnets - 2* subnets
+    
     print(subnets)
     print(hosts_per_subnet)
+    print(hosts_per_subnet * subnets)
     
     
 
 
-subnetCalc(142,168,2,0, 18)
+subnetCalc(192,168,2,0, 26)
 
 
 

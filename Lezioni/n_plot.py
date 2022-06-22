@@ -27,13 +27,13 @@ def min_max_counter(max,data,target):
       return occs
 
 
-#valori primo plot
+#valori primo plot. guardo le quantità di denaro di ciascuna transazione
 ids = [x["id"] for x in data]
 sums = [x["sum"] for x in data]
 axis[0][0].bar(ids, sums, width=10)
 
 
-#valori secondo plot
+#valori secondo plot (guardo la relazione tra i vari utenti)
 aas = [x["a"] for x in data]
 bs = [x["b"] for x in data]
 axis[1][0].scatter(aas, bs)

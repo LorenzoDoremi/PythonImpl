@@ -2,7 +2,7 @@ from cmath import sin
 from math import radians
 
 
-def derivative(f, point,  iterations):
+def derivative(f, point, iterations):
 
     m1 = 0
     m2 = 0
@@ -23,6 +23,6 @@ def m_sin(x):
 
 
 
-p = derivative(m_sin, 0, 100)
+p = derivative(square, 0, 100)
 print(p)
 

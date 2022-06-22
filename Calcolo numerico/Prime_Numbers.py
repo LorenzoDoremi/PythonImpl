@@ -31,3 +31,8 @@ def primeNumbersFix(end):
     for i in range(0, end):
         if(numbers[i]):
             print(i)
+
+
+
+# append = occupare spazio inutilmente. ho già gli indici nell'array che corrispondono ai numeri
+# numbers non mi serve a nulla e settare end+1 è uno spreco di tempo e spazio

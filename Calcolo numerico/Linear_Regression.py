@@ -4,7 +4,7 @@ from numpy import average
 
 figure, axis = plt.subplots(2)
 
-
+#funzione che ritorna valori leggermente errati intorno ad una retta del tipo y = k   (m = 1, q = 0)
 def population(k):
     return -k+(random()-0.5)*10
 
