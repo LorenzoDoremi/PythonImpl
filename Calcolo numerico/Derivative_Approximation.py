@@ -3,10 +3,12 @@ from math import radians
 
 
 def derivative(f, point, iterations):
-
+    # coefficiente angolare della retta passante per il punto noto e uno alla sua sinistra vicino
     m1 = 0
+    # stessa cosa ma a destra
     m2 = 0
     d = 0
+
     for i in range(1,iterations):
         m1 = (f(point - 1/i) - f(point)) / (( point - 1/i) - point)
         m2 = (f(point + 1/i) - f(point)) / (( point + 1/i) - point)

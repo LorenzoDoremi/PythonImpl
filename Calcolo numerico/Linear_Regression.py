@@ -57,7 +57,7 @@ q = q/len(x)
 
 
 
-# calcolo l'errore dalla retta di coefficiente m 
+# calcolo l'errore dalla retta di coefficiente m se mi interessa
 def error(coeff, qq):
  err = 0   
  for i in range(0,len(x)):
