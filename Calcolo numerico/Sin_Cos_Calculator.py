@@ -1,12 +1,43 @@
-# a = angolo espresso in gradi
-a = 45
-m = a/(90-a)
-# x = valore x in cui la lunghezza della retta di coefficiente m è 1 : interseca la circonferenza unitaria)
-# procedimento: 
-x = 1 / ((a/(90-a))**2 + 1)**0.5
-sin = m*x
-cos = x
+import math
+import time
 
 
-print(sin)
-print(cos)
+def factorial(x):
+    
+    r = x 
+    for i in range(1,x):
+     r *= x-i  
+    return r  
+
+
+def sin_taylor(a, iterations):
+
+    r = 0
+    
+    for i in range(0,iterations):
+
+        r += (((-1)**i)/factorial(2*i +1))*((a)**(2*i + 1))
+    return r
+
+def cos_taylor(a, iterations):
+    
+    r = 0
+    
+    for i in range(0,iterations):
+
+        r += (((-1)**i)/factorial(2*i))*((a)**(2*i))
+    return r
+
+
+k = 0
+test = 10000
+
+t = time.time()*1000
+for i in range(0,test):
+  k = sin_taylor((i%360)*math.pi/180, 5)
+
+print(time.time()*1000 - t)
+
+
+
+
