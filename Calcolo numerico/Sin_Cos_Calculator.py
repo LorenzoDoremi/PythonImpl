@@ -33,11 +33,7 @@ def cos_taylor(a, iterations):
 k = 0
 test = 10000
 t = time.time()*1000
-for i in range(0,360):
- k =  str(my_sin(i))+" gradi = "+str(i)
- # print(k)
 
-#print(time.time()*1000 - t)
 
 
 print("--------------------")
