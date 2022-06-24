@@ -31,18 +31,9 @@ class List:
         self.l +=1
 
     def shift(self, k):
-        curr = self.head
+        ""
+        sh = k%self.l
         
-        while curr.next:
-            switch = curr
-            for i in range(0,self.l-k):
-                if switch.next:
-                    switch = switch.next
-                else: 
-                    switch = self.head
-                    
-            curr.v = switch.v
-            curr = curr.next
 
 
 
