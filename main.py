@@ -1,11 +1,11 @@
 from copy import copy
 from random import random
 import numpy
-from Profanity_Filter import profanityFilter
-from Prime_Numbers import primeNumbers, primeNumbersFix
-from Py_Hash import pyHash
-from Zero_Calculator import bisection, regula_falsi
-from Integral_Calculator import metodo_rettangoli
+from esercizi_ed_esempi.profanity_filter import profanityFilter
+from calcolo_numerico.prime_numbers import primeNumbers, primeNumbersFix
+from strutture_dati.py_hash import pyHash
+from calcolo_numerico.zero_calculator import bisection, regula_falsi
+from calcolo_numerico.integral_calculator import metodo_rettangoli
 i = 0
 
 def square(x):
