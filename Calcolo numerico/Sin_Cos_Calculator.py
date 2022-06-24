@@ -2,6 +2,8 @@ import math
 import time
 
 
+
+
 def factorial(x):
     
     r = x 
@@ -18,7 +20,6 @@ def sin_taylor(a, iterations):
 
         r += (((-1)**i)/factorial(2*i +1))*((a)**(2*i + 1))
     return r
-
 def cos_taylor(a, iterations):
     
     r = 0
@@ -31,12 +32,21 @@ def cos_taylor(a, iterations):
 
 k = 0
 test = 10000
-
 t = time.time()*1000
-for i in range(0,test):
-  k = sin_taylor((i%360)*math.pi/180, 5)
+for i in range(0,360):
+ k =  str(my_sin(i))+" gradi = "+str(i)
+ # print(k)
 
-print(time.time()*1000 - t)
+#print(time.time()*1000 - t)
+
+
+print("--------------------")
+
+#t = time.time()*1000
+#for i in range(0,test):
+#  k = sin_taylor((i%360)*math.pi/180, 5)
+
+# print(time.time()*1000 - t)
 
 
 
