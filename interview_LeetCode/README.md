@@ -1,0 +1,2 @@
+Questa cartella contiene alcuni esercizi svolti proposti sul sito LeetCode, standard per le interviste coding nel mondo del lavoro.
+Consiglio di provare ogni tanto a risolvere gli esercizi, partendo ovviamente dalla difficoltà easy (tutt'altro che facile!)
