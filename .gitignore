@@ -15,3 +15,6 @@ node_modules
 
 #ignore folder
 __pycache__
+
+#ignore folder
+private/
