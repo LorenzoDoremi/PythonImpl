@@ -21,9 +21,12 @@ def find_rivers(matrix):
 
     visited = set()
     results = []
+    # faccio partire la cosa da tutti i punti di una matrice bidimensionale
     for i in range(0,len(matrix)):
         for j in range(0,len(matrix[i])):
           store = [0]
+
+          #considero il nuovo punto solo se è parte di un fiume che non ho già visto (e quindi raggiunto da visit())
           if matrix[i][j] == 1 and (i,j) not in visited:
             visit(matrix, i, j, visited, store)
             results.append(store[0])
