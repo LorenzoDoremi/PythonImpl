@@ -25,7 +25,7 @@ utenti = []
 for x in range(0,10):
     utenti.append(utente(int(random()*100)))
 
-# 2.a: ut è un nuovo oggetto. immutabile. questa cosa non funziona!
+# 2.a: ut è un nuovo oggetto. questa cosa non funziona!
 for ut in utenti:
     ut = utente(100)
 

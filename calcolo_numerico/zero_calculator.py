@@ -59,11 +59,30 @@ def secanti(func,first,last,iteractions):
 
   return x_i
         
+def newton_raphson(func, min, max, iterations):
+    ""
+    ''' if func(min)*func(max) >= 0:
+        return False '''
+    
+    xi = max
+    for i in range(0,iterations):
+
         
+        coeff = (func(xi) - func(xi-0.1))/(xi - (xi-0.1))
+        xi -= abs(func(xi)/coeff)
+        print(xi)
+        if abs(func(xi)) < 0.01:
+           break
+    
+    return xi
         
-print(regula_falsi(lambda x : x**3 - 5, -5,5,100))
-print(bisection(lambda x : x**3 - 5, -5,5,100))
-print(secanti(lambda x : x**3 - 5, -5,5,100))
+
+
+        
+''' print(regula_falsi(lambda x : x**2 - 5, -5,2,100))
+print(bisection(lambda x : x**2 - 5, -5,5,100))
+print(secanti(lambda x : x**2 - 5, -5,2,100))'''
+print(newton_raphson(lambda x : x**2 - 5, -5,5,100)) 
 
 
 
