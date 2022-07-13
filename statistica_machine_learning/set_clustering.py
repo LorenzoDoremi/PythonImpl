@@ -53,7 +53,7 @@ clustering_key = "peso"
 #creo i set partendo da nessuna informazione (La media)
 for i in range(0,4):
     pivot = animali[int(random()*len(animali))]
-    new_set = pivot_set(classification_key, 0)
+    new_set = pivot_set(clustering_key, 0)
 
     #uso il nome per vedere i set in chiarezza, superfluo per i conti
     new_set.insert(pivot, "nome")
@@ -74,7 +74,7 @@ def insert_all_data(key):
     sets[index].insert(animale, "nome")
 
 
-insert_all_data(classification_key)
+insert_all_data(clustering_key)
 
 
 # ricalcolo ogni volta i pivot dei vari set, ottenendo set più precisi 
@@ -86,7 +86,7 @@ def recalculate_pivots(repetitions, key):
       insert_all_data(key)
 
 
-recalculate_pivots(10, classification_key)
+recalculate_pivots(10, clustering_key)
 
 for set in sets:
     print(set)
