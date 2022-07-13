@@ -48,7 +48,7 @@ class pivot_set:
 
 
 sets = []
-classification_key = "peso"
+clustering_key = "peso"
 
 #creo i set partendo da nessuna informazione (La media)
 for i in range(0,4):
