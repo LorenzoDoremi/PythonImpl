@@ -2,18 +2,34 @@
 from tokenize import String
 from PIL import Image
 import tkinter
+import numpy
 import pygame
 from numpy import size, sqrt
 
 # questo codice trasforma un'immagine in ASCII
+def remap(v,min,max,new_min,new_max):
+    
+    old_range = max-min
+    new_range = new_max-new_min
+
+    inc = v/old_range
+    
+    return new_min + (new_range)*inc
 
 
-im = Image.open('immagini/girl.jpg')
-im2 = Image.open('immagini/img.jpg')
-im3 = Image.open('immagini/img2.jpg')
-width, height = im.size
 
-pixel_values = list(im.getdata())
+
+
+# chiamabile su vettori di pari lunghezza N. 
+# calcola la distanza cartesiana tra due vettori a N dimensioni.
+def vector_distance(a1,a2):
+
+    distance = 0
+    for i in range(0,len(a1)):
+        distance += (a1[i]-a2[i])**2
+    
+    return sqrt(distance)
+
 
 
 # sieve è un valore per cui divido il numero di interazioni. sieve = 10, controllo un decimo dei pixel
@@ -32,9 +48,11 @@ def get_moments(image: Image, sieve):
             mean_r += pixel_values[y*width + x][0]
             mean_g += pixel_values[y*width + x][1]
             mean_b += pixel_values[y*width + x][2]
-    mean_r /= (width*height)/sieve
-    mean_g /= (width*height)/sieve
-    mean_b /= (width*height)/sieve
+
+
+    mean_r /= ((width*height)/sieve)
+    mean_g /= ((width*height)/sieve)
+    mean_b /= ((width*height)/sieve)
     # calcolo la deviazione standard e skewness per i valori rgb
     for y in range(0, height, sieve):
         for x in range(0, width, sieve):
@@ -66,15 +84,41 @@ def get_moments(image: Image, sieve):
     return [mean, dev, skew]
     
             
-            
 
-moments = get_moments(im, 8)
-moments2 = get_moments(im2, 8)
-moments3 = get_moments(im3, 8)
-print(moments)
-print(moments2)
-print(moments3)
+#carico le immagini
+im = Image.open('immagini/girl.jpg')
+im2 = Image.open('immagini/result.png')
+im3 = Image.open('immagini/img2.jpg')
+im4 = Image.open('immagini/img.jpg')
 
+
+width, height = im.size
+
+#assegno ad un array per comodità       
+images = [im,im2,im3,im4]
+
+#calcolo i tre momenti colore per tutte le immagini
+moments = [ get_moments(x, 32) for x in images]
+
+#moments[0] = media, 
+#moments[1] = deviazione standard
+#moments[2] = skewness
+
+
+moment = 3
+#preparo la matrice da riempire
+mean_distances = numpy.zeros((len(images), len(images)))
+
+for i in range(0,len(mean_distances)):
+    for j in range(0,len(mean_distances[i])):
+         
+        for mom in range(moment):
+          mean_distances[i][j] += vector_distance(moments[j][mom], moments[i][mom])
+        mean_distances[i][j]  = remap(mean_distances[i][j], 0 ,100, 0, 1)
+
+
+
+print(mean_distances)
 
 
 

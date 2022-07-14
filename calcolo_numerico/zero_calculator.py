@@ -45,7 +45,7 @@ def regula_falsi(func, min, max, iteractions):
 def secanti(func,first,last,iteractions):
  
  
-  x_i = -20
+  x_i = 0
  
   
   for i in range(0,iteractions):

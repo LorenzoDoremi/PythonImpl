@@ -6,6 +6,7 @@ from calcolo_numerico.prime_numbers import primeNumbers, primeNumbersFix
 from strutture_dati.py_hash import pyHash
 from calcolo_numerico.zero_calculator import bisection, regula_falsi
 from calcolo_numerico.integral_calculator import metodo_rettangoli
+from util.remap import remap
 i = 0
 
 def square(x):

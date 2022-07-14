@@ -86,7 +86,7 @@ def recalculate_pivots(repetitions, key):
       insert_all_data(key)
 
 
-recalculate_pivots(10, clustering_key)
+recalculate_pivots(100, clustering_key)
 
 for set in sets:
     print(set)
