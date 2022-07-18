@@ -6,7 +6,7 @@ figure, axis = plt.subplots(2)
 
 #funzione che ritorna valori leggermente errati intorno ad una retta del tipo y = k   (m = 1, q = 0)
 def population(k):
-    return -k+(random()-0.5)*10
+    return k+(random()-0.5)*10
 
 #popolo una serie di valori continui (per evitare un inutile sort )
 curr = 0
@@ -71,7 +71,7 @@ print(m)
 print(q)
 axis[0].plot(x,y)
 axis[0].plot(x,line)
-
+axis[1].plot(y,x)
 
 
 
