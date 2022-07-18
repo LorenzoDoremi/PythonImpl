@@ -14,10 +14,10 @@ class List:
         self.l = 0
     def print(self):
         curr = self.head
-        print(curr.v)
-        while curr.next:
-            curr = curr.next
+        while curr:
             print(curr.v)
+            curr = curr.next
+            
 
     def push(self, v):
          
