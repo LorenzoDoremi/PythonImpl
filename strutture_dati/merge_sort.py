@@ -121,4 +121,4 @@ def mergeSort(arr, l, r):
 arr = [12, 11, 13, 2, 5, 6, 7, 9]
 mergeSort(arr, 0, len(arr)-1)
 
-# This code is contributed by Mohit Kumra
+

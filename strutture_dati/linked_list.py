@@ -37,7 +37,7 @@ class List:
         curr = self.head
         new_head = None
         
-        # se k è un numero negativo, vado indietro (trovando k = lunghezza + k)
+        # se k è un numero negativo, vado "indietro" (trovando k = lunghezza + k)
         if k < 0:
             m = 0
             l = self.head
@@ -54,6 +54,8 @@ class List:
             # bene, ho trovato la nuova testa
             if index == k:
                 new_head = curr
+
+                
             # se posso andare avanti, continuo
             if curr.next:
                 curr = curr.next

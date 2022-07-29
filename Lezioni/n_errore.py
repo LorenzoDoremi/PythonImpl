@@ -1,7 +1,7 @@
 from random import random
 
-
-dati = [random()*10000  for x in range(0,1000)]
+elementi = 1000
+dati = [random()*10000  for x in range(0,elementi)]
 
 #calcolo la media di una serie di dati
 # step = 1, uso tutti i dati
@@ -19,11 +19,14 @@ def precisione(dato_reale, dato_errato):
 
 
 m = media(dati, 1)
-print(m)
 
-m_errore = media(dati, 30)
-print(m_errore)
+
+step = 10
+m_errore = media(dati, step)
+
 
 precisione = precisione(m, m_errore)
-print(str(int(precisione*100))+"%")
+print("popolazione = "+str(elementi))
+print("fattore = "+str(step))
+print("precisione percentuale = "+str(int(precisione*100))+"%")
 

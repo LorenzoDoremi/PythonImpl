@@ -80,4 +80,4 @@ plt.show()
 
 
 # https://medium.com/swlh/ols-method-of-linear-regression-using-c-6cdc1fd74918
-# https://it.wikipedia.org/wiki/Metodo_dei_minimi_quadrati#Stimatori_OLS
+# https://it. .org/wiki/Metodo_dei_minimi_quadrati#Stimatori_OLS
