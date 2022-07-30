@@ -8,8 +8,8 @@ class hash:
     
     def hash_value(self, key):
         
-        print(id(key))
-        return id(key) % self.size
+        
+        return id(key)*id(key) % self.size
     def insert(self, key):
         
         
