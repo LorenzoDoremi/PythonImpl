@@ -11,7 +11,7 @@ animali = [
     {"nome": "Formica", "peso": 0.03, "altezza": 1 },
     {"nome": "Gatto", "peso": 4, "altezza": 40 },
     {"nome": "Pesce Palla", "peso": 1, "altezza": 30 },
-    {"nome": "Leone", "peso": 120, "altezza": 110 },
+    {"nome": "Leone femmina", "peso": 120, "altezza": 110 },
     {"nome": "Capidoglio", "peso": 10000, "altezza": 3000 },
     {"nome": "Ragno", "peso": 0.05, "altezza": 2 },
     {"nome": "Squalo", "peso": 4000, "altezza": 12000 },
@@ -24,6 +24,8 @@ animali = [
 class pivot_set:
     def __init__(self, key, avg):
         self.set = set()
+
+        # self.key = chiave usata per calcolare la media
         self.key = key
         self.avg = avg
         self.total = 0
@@ -34,6 +36,7 @@ class pivot_set:
         # salvo il nome
         self.set.add(data[save_key])
         self.size+=1
+        # calcolo la media con la self.key 
         self.total += data[self.key]
         self.avg = self.total/self.size
     
@@ -48,10 +51,12 @@ class pivot_set:
 
 
 sets = []
+
+# sarà usata come self.key del mio pivot set
 clustering_key = "peso"
 
 #creo i set partendo da nessuna informazione (La media)
-for i in range(0,4):
+for i in range(0,8):
     pivot = animali[int(random()*len(animali))]
     new_set = pivot_set(clustering_key, 0)
 
@@ -74,19 +79,21 @@ def insert_all_data(key):
     sets[index].insert(animale, "nome")
 
 
-insert_all_data(clustering_key)
+
+
 
 
 # ricalcolo ogni volta i pivot dei vari set, ottenendo set più precisi 
-def recalculate_pivots(repetitions, key):
+def recalculate_pivots(repetitions, clustering_key):
 
     for j in range(repetitions):
       for i in range(0,len(sets)):
+         # ricreo ogni pivot con una nuova media
          sets[i] = pivot_set("peso", sets[i].avg)
-      insert_all_data(key)
+      insert_all_data(clustering_key)
 
 
-recalculate_pivots(100, clustering_key)
+recalculate_pivots(109, clustering_key)
 
 for set in sets:
     print(set)

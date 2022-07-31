@@ -5,7 +5,7 @@ import numpy
 def visit(matrix, i,j, visited : set, store):
   if i >= 0 and j >= 0 and i < len(matrix) and j < len(matrix[i]) and matrix[i][j] == 1 and (i,j) not in visited:
         visited.add((i,j))
-      #  print(visited)
+      # aggiungo 1 di lunghezza al fiume attuale
         store[0] += 1
         # down
         visit(matrix,i+1,j,visited,store)
@@ -24,6 +24,8 @@ def find_rivers(matrix):
     # faccio partire la cosa da tutti i punti di una matrice bidimensionale
     for i in range(0,len(matrix)):
         for j in range(0,len(matrix[i])):
+          
+          #il valore della lunghezza del fiume attuale
           store = [0]
 
           #considero il nuovo punto solo se è parte di un fiume che non ho già visto (e quindi raggiunto da visit())
