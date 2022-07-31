@@ -15,7 +15,7 @@ class game:
     def check_collision(self):
         return (True, self.monsters[0])   
 
-# classe astratta utile per essere estesa
+# classe astratta utile per essere estesa (ereditarietà)
 class game_actor:
     def __init__(self, position, stats, game : game):
         self.position = position

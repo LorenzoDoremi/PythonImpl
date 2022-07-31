@@ -42,6 +42,10 @@ def regula_falsi(func, min, max, iteractions):
            # print("RIGHT")
             return regula_falsi(func, x, b, iteractions - 1)
 
+
+
+
+# approssimazione tramite metodo delle secanti
 def secanti(func,first,last,iteractions):
  
  
@@ -53,12 +57,16 @@ def secanti(func,first,last,iteractions):
         if(abs(first - last) > 0.01):
         
           # principio simile alla regula falsi, ma il punto x_i è al di fuori del range first-last
+
+          # quando non funziona? che problema ha questo metodo? 
           x_i = first - (func(first)/ ((func(last) - func(first))/(last-first)))
           first = last
           last = x_i
 
   return x_i
         
+# metodo di newton raphson
+# quando non funziona?        
 def newton_raphson(func, min, max, iterations):
     ""
     ''' if func(min)*func(max) >= 0:
@@ -70,7 +78,7 @@ def newton_raphson(func, min, max, iterations):
         
         coeff = (func(xi) - func(xi-0.1))/(xi - (xi-0.1))
         xi -= abs(func(xi)/coeff)
-        print(xi)
+       
         if abs(func(xi)) < 0.01:
            break
     
@@ -79,9 +87,9 @@ def newton_raphson(func, min, max, iterations):
 
 
         
-''' print(regula_falsi(lambda x : x**2 - 5, -5,2,100))
+print(regula_falsi(lambda x : x**2 - 5, -5,2,100))
 print(bisection(lambda x : x**2 - 5, -5,5,100))
-print(secanti(lambda x : x**2 - 5, -5,2,100))'''
+print(secanti(lambda x : x**2 - 5, -5,2,100))
 print(newton_raphson(lambda x : x**2 - 5, -5,5,100)) 
 
 
