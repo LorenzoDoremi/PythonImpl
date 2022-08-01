@@ -23,10 +23,13 @@ det_x = 0
 det_y = 0
 
 print(det)
+
+# sostituisco la x ([0]) con il valore di B [0]
 sistx = numpy.copy(sistema)
 for i in range(0, len(sistema)):
     sistx[i][0] = b[i]
 
+# sostituisco la y ([1]) con il valore di B [1]
 sisty = numpy.copy(sistema)
 for i in range(0, len(sistema)):
     sisty[i][1]= b[i]
