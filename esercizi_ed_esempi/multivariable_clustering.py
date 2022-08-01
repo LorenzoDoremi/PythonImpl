@@ -45,6 +45,14 @@ animali = [{"nome": "gatto","peso": 4, "età": 3,"lunghezza": 55},
 {"nome": "squalo", "peso": 5700, "età": 150, "lunghezza": 520},
 {"nome": "balena", "peso": 10000, "età": 50, "lunghezza": 1220},
 {"nome": "formica", "peso": 0.1, "età": 1, "lunghezza": 5},
+{"nome": "caracal","peso": 8, "età": 3,"lunghezza": 105},
+{"nome": "lupo", "peso": 100, "età": 8,"lunghezza": 200},
+{"nome": "pesce palla","peso": 1,"età": 14, "lunghezza": 70},
+{"nome": "elefante", "peso": 5000, "età": 80, "lunghezza": 500},
+{"nome": "uomo", "peso": 80, "età": 80, "lunghezza": 180},
+{"nome": "mucca", "peso": 1000, "età": 15, "lunghezza": 320},
+{"nome": "toro", "peso": 1200, "età": 10, "lunghezza": 350},
+{"nome": "farfalla", "peso": 0.05, "età": 1, "lunghezza": 10},
 
 ]
 
@@ -53,12 +61,22 @@ animali = [{"nome": "gatto","peso": 4, "età": 3,"lunghezza": 55},
 keys = ["peso", "età", "lunghezza"]
 
 sets = []
+
+eliminated = []
 #creo set randomici
-for i in range(0,4):
+for i in range(0,5):
     new_set = multivariable_pivot_set(keys, [0 for x in keys])
     random_pivot = animali[int(random()*len(animali))]
     new_set.insert(random_pivot,"nome")
     sets.append(new_set)
+    #evito duplicati come pivot
+    animali.remove(random_pivot)
+    eliminated.append(random_pivot)
+
+
+
+for el in eliminated:
+    animali.append(el)
     
 
 
@@ -99,10 +117,11 @@ def multivariable_clustering(sets, data, keys, iterations):
 
 
 
-multivariable_clustering(sets, animali, keys, 10)
+multivariable_clustering(sets, animali, keys, 100)
 
 for set in sets:
     print("\n ")
+   
     print(set)
 
 
