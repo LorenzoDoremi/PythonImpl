@@ -64,7 +64,7 @@ sets = []
 
 eliminated = []
 #creo set randomici
-for i in range(0,5):
+for i in range(0,10 ):
     new_set = multivariable_pivot_set(keys, [0 for x in keys])
     random_pivot = animali[int(random()*len(animali))]
     new_set.insert(random_pivot,"nome")
