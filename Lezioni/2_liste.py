@@ -12,6 +12,14 @@ for x in range(0, 100):
 # list comprehension. ottengo lo stesso risultato ma è più efficiente
 lista = [x for x in range(0, 100)]
 
+# list comprehension permette anche di creare ed estrarre valori più interessanti.
+
+oggetti = [ {"x": i, "y": i**2} for i in range(0,10)]
+
+valori_x = [oggetto["x"] for oggetto in oggetti]
+
+print(valori_x)
+
 
 
 
@@ -37,7 +45,7 @@ for x in range(0,10):
 for ut in utenti:
     ut = utente(100)
 
-# 2.b: questo funziona. i è solo un indice che punta alla lista di utenti
+# 2.b: questo funziona. i è solo un indice che permette di puntare alla lista di utenti
 for i in range(0,len(utenti)):
     utenti[i] = utente(100)
 

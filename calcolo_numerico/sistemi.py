@@ -2,7 +2,7 @@
 
 
 
-from socket import SOL_IP
+
 import numpy
 
 
@@ -15,7 +15,7 @@ sistema = [
 b =  [4,9]
 sol  = numpy.linalg.inv(sistema).dot(b)
 
-
+print(sol)
 #metodo di Cramer
 
 det = numpy.linalg.det(sistema)

@@ -1,3 +1,4 @@
+#impariamo ad eseguire operazioni tante volte: i loop o cicli
 for i in range(0,10):
     print(i, end="-")
 

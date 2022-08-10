@@ -31,3 +31,10 @@ for autore in opere_per_autore:
         print(autore["autore"])
         print(len(autore["lista_opere"]))
 
+
+
+
+soluzioni_equazione = [];
+with urllib.request.urlopen("https://simplechat-doremi.herokuapp.com/2grade?coeff=[1,-2,-2]") as url:
+    soluzioni_equazione = json.loads(url.read().decode())
+print(soluzioni_equazione)
