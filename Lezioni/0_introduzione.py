@@ -28,3 +28,7 @@ x = 6.345;
 x_intero = int(x) # 6
 x_parola = str(x)
 print(x_intero)
+
+
+
+# SHIFT + ALT + F = indenta il codice per noi
