@@ -12,6 +12,12 @@ def change_warrior(old_warrior: warrior):
     old_warrior = gugus
 
 
+
+def create_warrior():
+    gugus = warrior("Gugus il pazzo",100)
+    return gugus
+
+
 def change_stats(old_warrior):
     old_warrior.power = 1000
 
@@ -36,4 +42,7 @@ print(eldenmaster)
 
 # modifico i parametri della classe nella funzione
 change_stats(eldenmaster)
+print(eldenmaster)
+
+eldenmaster = create_warrior()
 print(eldenmaster)
