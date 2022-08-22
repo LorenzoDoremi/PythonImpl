@@ -29,6 +29,8 @@ print(fattoriale(5.656))
 print(fattoriale_generico(5.656))
 
 
+# perchè non è cambiato un bel niente?
+
 # sommiamo tutti i numeri in un vettore.
 def somma_vettore(lista):
 
@@ -41,7 +43,7 @@ def somma_vettore(lista):
 numeri = [1, 2, 3, 4, 5]
 print(somma_vettore(numeri))
 
-# utile la funziona somma_vettore? beh in realtà no. Pyhton è bello perchè ci sono le cose già fatte ;)
+# utile la funziona somma_vettore? beh in realtà no. Python è bello perchè ci sono le cose già fatte ;)
 somma = sum(numeri)
 print(somma)
 

@@ -16,6 +16,8 @@ for x in range(5):
 print("")
 
 
+
+
 j = 0
 while(j < 10):
     print(j, end="-")

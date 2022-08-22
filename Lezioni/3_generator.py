@@ -6,13 +6,15 @@ numeri = (x for x in range(0, 10))
 # primo loop. stampa.
 for n in numeri:
     print(n, end=" ")
+
+
 # secondo loop. non più utilizzabile!!!!!
 for n in numeri:
     print(n*n, end=" ")
 
 quadrati = (x*x for x in numeri)
 
-# non posso nemmeno estrarre da quel generatore
+# non posso nemmeno estrarre da quel generatore. è scomparso.
 for n in quadrati:
     print(n*n, end=" ")
 
