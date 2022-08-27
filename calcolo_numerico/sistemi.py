@@ -6,6 +6,8 @@
 import numpy
 
 
+# 2x - 1 = 4
+# x - 3  = 9
 
 #metodo delle matrici
 sistema = [
