@@ -126,7 +126,7 @@ animali = [{"nome": "gatto","peso": 4, "età": 3,"lunghezza": 55},
 ]
 
 # example keys used
-keys = ["peso", "età", "lunghezza"]
+''' keys = ["peso", "età", "lunghezza"]
 save_key = "nome"
 
 
@@ -137,7 +137,7 @@ for set in sets:
    
     print(set)
 
-
+ '''
 
 
 
