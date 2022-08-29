@@ -18,3 +18,5 @@ __pycache__
 
 #ignore folder
 private/
+
+statistica_machine_learning/deep_language/
