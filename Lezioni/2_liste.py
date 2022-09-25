@@ -1,12 +1,17 @@
 from random import random
+from re import M
 
 
 
-
+lista_piena = [1,2,3]
 lista = []
 
+# un dizionario. oggetto UTILISSIMO!
+dizionario = {"nome": "Lorenzo", "eta": 28}
+
+
 # 1: classico ciclo for per riempire lista. non sempre l'opzione migliore
-for x in range(0, 100):
+for x in range(0, 10):
     lista.append(x*10)
 
 # enumerate è la versione più elegante e professionale per scorrere un oggetto iterabile
@@ -17,52 +22,27 @@ for index, x in enumerate(lista):
 print("")
 
 
-
-# list comprehension. ottengo lo stesso risultato ma è più efficiente
+# list comprehension. ottengo lo stesso risultato ma è ancora più elegante e leggibile
 lista = [x for x in range(0, 100)]
 
-# list comprehension permette anche di creare ed estrarre valori più interessanti.
+# list comprehension permette anche di creare o estrarre valori più interessanti. ad esempio dizionari
 
 oggetti = [ {"x": i, "y": i**2} for i in range(0,10)]
 
 valori_x = [oggetto["x"] for oggetto in oggetti]
 
-print("valori = ")
+print("valori di x = ", end= " ")
 print(valori_x)
 
 
+l = [1,2,3,4]
+m = [5,6,7,8]
+conc = l+m  # [1,2,3,4,5,6,7,8]
+sum = [l[i] + m[i] for i in range(0,len(l))] #[6,8,10,12]
+#diff = m - l #questo non esiste
 
-
-# un oggetto classe. lo vediamo meglio più avanti
-class utente:
-    def __init__(self, eta):
-        self.eta = eta
-
-# 2: lista di oggetti classe
-utenti = []
-for x in range(0,10):
-    utenti.append(utente(int(random()*100)))
-
-
-
-
-# 2.a: ut è una copia finta creata sul momento. questa cosa non funziona!
-for ut in utenti:
-    ut = utente(50)
-
-# stamperà numeri a caso
-for ut in utenti:
-    print(ut.eta)
-
-
-# 2.b: questo funziona. i è solo un indice che permette di puntare alla lista di utenti
-for i in range(0,len(utenti)):
-    utenti[i] = utente(100)
-
-# stamperà tanti 100
-for ut in utenti:
-    print(ut.eta)
-
-
-# si può ottimizzare questo codice? quali sono le possibili problematiche di questo approccio?
-
+#i primi 3 elementi di una lista
+parte = l[:3]
+#gli ultimi n-2 elementi (ovvero quanti ne salto)
+k = l[2:]
+print(k)

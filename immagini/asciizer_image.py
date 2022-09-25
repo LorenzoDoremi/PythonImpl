@@ -7,7 +7,7 @@ from numpy import size
 #questo codice trasforma un'immagine in ASCII
 
 
-im = Image.open('immagini/girl.jpg')
+im = Image.open('immagini/under/girl.jpg')
 width, height = im.size
 
 pixel_values = list(im.getdata())

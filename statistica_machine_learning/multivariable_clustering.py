@@ -35,12 +35,21 @@ class multivariable_pivot_set:
 
         return str(self.s) + "\navg = "+str(self.avg) + "\nkeys= "+str(self.keys)
 
+    def get_JSON(self):
+        dic = dict(zip(self.keys, self.avg))
+        dic["data"] = list(self.s)
+        return dic
+
     
 
 
 
 # this function inserts a dictionary data into a particular set who keeps track of the average of keys
-def insert_all_data(sets, data, keys):
+def insert_data(sets, data, keys, save_key):
+    
+    if not isinstance(data, list):
+        data = [data]
+        
     for element in data:
         # calculate the distance of the dictionary from each given set. find the minimum
         minv = Infinity
@@ -54,13 +63,16 @@ def insert_all_data(sets, data, keys):
                 
                 max_value = max(element[keys[key_index]],sets[index].avg[key_index])
                 min_value = min(element[keys[key_index]],sets[index].avg[key_index])
-                distance += abs(1 - max_value/min_value)
+                if min_value != 0:
+                 distance += abs(1 - max_value/min_value)
+                else:
+                 distance += abs(1 - max_value/(0.1))
             # if distance is lower, save the current set candidate.
             if distance < minv:
                 minv = distance
                 min_set = sets[index]
         #assign the current dictionary to the candidate set   
-        min_set.insert(element, "nome")
+        min_set.insert(element, save_key)
 
 # data = a list of dictionaries
 # save_key = the name used for indexing and visualization
@@ -89,7 +101,7 @@ def multivariable_clustering(data, save_key, keys, iterations, num_sets):
 
      #for each iteration, insert the data into sets, then get the average a recreate new starting sets.
      for i in range(0,iterations):
-            insert_all_data(sets, data, keys)
+            insert_data(sets, data, keys, save_key)
             for set_index in range(0,len(sets)):
                 new_avg = sets[set_index].avg
               
@@ -97,7 +109,7 @@ def multivariable_clustering(data, save_key, keys, iterations, num_sets):
 
      
      # at the end, do a final insert.
-     insert_all_data(sets, data, keys)
+     insert_data(sets, data, keys, save_key)
      return sets
 
 
@@ -106,7 +118,7 @@ def multivariable_clustering(data, save_key, keys, iterations, num_sets):
 
 
 # example dataset
-animali = [{"nome": "gatto","peso": 4, "età": 3,"lunghezza": 55},
+animali = [{"nome": "gatto","peso": 4, "età": 3,"lunghezza": 55,},
 {"nome": "leone", "peso": 160, "età": 8,"lunghezza": 250},
 {"nome": "tigre","peso": 170,"età": 4, "lunghezza": 270},
 {"nome": "ragno", "peso": 0.27, "età": 2, "lunghezza": 14},
@@ -126,18 +138,19 @@ animali = [{"nome": "gatto","peso": 4, "età": 3,"lunghezza": 55},
 ]
 
 # example keys used
-''' keys = ["peso", "età", "lunghezza"]
+keys = ["peso", "età", "lunghezza"]
 save_key = "nome"
 
 
 sets = multivariable_clustering(animali, save_key, keys, 100, 5)
 
-for set in sets:
-    print("\n ")
-   
-    print(set)
+insert_data(sets, {"nome": "New Fish", "peso": 0, "età": 99, "lunghezza": 99}, keys, save_key);
 
- '''
+for set in sets:
+    print(set)
+print(sets[0].get_JSON())
+
+ 
 
 
 
