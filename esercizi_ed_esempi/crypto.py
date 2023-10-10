@@ -1,6 +1,4 @@
-# data una string multilinea, si trasformino tutte le iniziali in maiuscolo, e si tolgano gli spazi doppi
 
-stringa = '''Congatulations you have solved a streamed caesar code'''
 
 
 
@@ -17,18 +15,22 @@ def caesar_decode(string,key):
     return temp
 
 
+
+# ESEMPIO DI CRITTOGRAFIA A FLUSSO (BANALE)
 def flux_encode(string, key):
 
     temp = ""
     for i in range(0,len(string)):
         
-        key_value = int(key[i%len(key)])
+        #scelgo il numero della chiave passata
+        key_value = int(ord(key[i%len(key)]))
         
+        #se sono al primo, crittografo la prima lettera aggiungendo semplicemente la chiave
         if i == 0:
             temp+= chr((ord(string[i])+key_value)%255)
             
            
-
+        #se sono dopo il primo, sfrutto anche la lettera prima. 
         else: 
             
             temp+=chr((ord(string[i])+key_value+ord(string[i-1]))%255)
@@ -39,26 +41,19 @@ def flux_decode(string, key):
     temp = ""
     for i in range(0,len(string)):
         
-        key_value = int(key[i%len(key)])
+        key_value = int(ord(key[i%len(key)]))
         if i == 0:
             temp+= chr((ord(string[i])-key_value)%255)
         else: 
+            # per crittografare la i-esima lettera, devo aver prima crittograffato quello i-1esima.
             temp+=chr((ord(string[i])-key_value-ord(temp[i-1]))%255)
     return temp
 
-''' crypto = caesar_encode(stringa, 3)
-print(crypto)
-crypto = caesar_decode(crypto, 3)
-print(crypto)
- '''
-
+stringa = "Congatulations you have solved a streamed caesar code"
 crypto = stringa
 
-crypto = flux_encode(crypto, "25")
+crypto = flux_encode(crypto, "f25346fdg7347gdf63")
 print(crypto)
-crypto = flux_decode(crypto, "25")
+crypto = flux_decode(crypto, "f25346fdg7347gdf63")
 print(crypto)
 
-
-''' E·ßÚ|||||Ø×îãÒ×âÚâãÎÙààäàËìèÜÈÓÔÎÆËÚÙÕ×ÕÎ '''
-''' E·ßÚ|||||ÊÚëæÏÚßÝßæéËÜÝçÝçÝÎëÙËÐ×ËÉÈÝÖØÔØË '''
