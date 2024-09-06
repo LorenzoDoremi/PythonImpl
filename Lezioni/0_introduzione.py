@@ -23,7 +23,7 @@ parola = "ciao!"
 print(parola)
 # il casting. ovvero convertire un tipo in un altro a noi più comodo
 
-x = 6.345;
+x = 6.345
 
 x_intero = int(x) # 6
 x_parola = str(x)

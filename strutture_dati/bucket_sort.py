@@ -16,8 +16,8 @@ def bucket_sort(arr,l):
 
  m_min = min(arr)
  m_max = max(arr)
- r = m_max-m_min;
- bucket_size = r/bucket_n +1;
+ r = m_max-m_min
+ bucket_size = r/bucket_n +1
 
  for i in range(0,len(arr)):
     pos = int(arr[i]/bucket_size)
