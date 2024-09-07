@@ -12,7 +12,7 @@ def subnetCalc(a,b,c,d,mask):
       bits = 24
 
     subnets = power(2, mask-bits)
-    hosts_per_subnet = power(2, 32 - mask) - 2;
+    hosts_per_subnet = power(2, 32 - mask) - 2
     
     print(subnets)
     print(hosts_per_subnet)
