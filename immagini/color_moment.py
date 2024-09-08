@@ -3,7 +3,7 @@ from tokenize import String
 from PIL import Image
 import tkinter
 import numpy
-import pygame
+import pygame as pygame
 from numpy import size, sqrt
 
 # questo codice trasforma un'immagine in ASCII
@@ -86,7 +86,7 @@ def get_moments(image: Image, sieve):
             
 
 #carico le immagini
-im = Image.open('immagini/girl.jpg')
+im = Image.open('immagini/under/girl.jpg')
 im2 = Image.open('immagini/result.png')
 im3 = Image.open('immagini/img2.jpg')
 im4 = Image.open('immagini/img.jpg')
@@ -128,7 +128,7 @@ pygame.init()
 pygame.display.set_caption('Stars')
 canvas = pygame.display.set_mode((width, height))
 
-while False:  # main game loop
+while True:  # main game loop
 
     for event in pygame.event.get():
         ""

@@ -15,7 +15,7 @@ def colAvg(col1, col2, strength):
     return [(col1[0]*strength + col2[0]*(100-strength)) / 100, (col1[1]*strength + col2[1]*(100-strength)) / 100, (col1[2]*strength + col2[2]*(100-strength)) / 100]
 
 
-im = Image.open('img2.jpg')
+im = Image.open('immagini/under/girl.jpg')
 width, height = im.size
 bucketsNum = 70
 buckets = []

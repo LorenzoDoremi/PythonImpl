@@ -3,7 +3,7 @@ from PIL import Image
 from numpy import size
 from tkinter import Tk, Canvas, PhotoImage, mainloop
 from math import sin
-import pygame
+import pygame as pygame
 import numpy
 
 
@@ -19,7 +19,7 @@ def rgbtohexA(color):
 
 
 
-im = Image.open('./immagini/girl.jpg')
+im = Image.open('immagini/under/girl.jpg')
 width, height = im.size
 
 pixel_values = list(im.getdata())

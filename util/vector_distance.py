@@ -1,3 +1,6 @@
+from math import sqrt
+
+
 def vector_distance(a1,a2):
     
     distance = 0
