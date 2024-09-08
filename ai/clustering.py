@@ -56,7 +56,7 @@ def clustering(list, clusters_num, iterations):
     return clusters
          
    
-myclusters = clustering(items, 3, 20)
+myclusters = clustering(items, 3, 50)
 for m in myclusters: 
     print(m,end="\n")
    

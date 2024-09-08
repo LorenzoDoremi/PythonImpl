@@ -21,8 +21,7 @@ print(sol)
 #metodo di Cramer
 
 det = numpy.linalg.det(sistema)
-det_x = 0
-det_y = 0
+
 
 print(det)
 
@@ -36,6 +35,7 @@ sisty = numpy.copy(sistema)
 for i in range(0, len(sistema)):
     sisty[i][1]= b[i]
 
+#determino i nuovi determinanti
 det_x = numpy.linalg.det(sistx)
 det_y = numpy.linalg.det(sisty)
 
