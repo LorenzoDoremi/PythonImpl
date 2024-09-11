@@ -171,6 +171,9 @@ def allena(dataset, input, learning_rate=0.01, correct_adjustment = 0.0001):
 
             input["on"] = 0  # resetto i nodi
     return giusto / len(dataset)
+
+
+
 def test(parole):
     italiano = 0
     inglese = 0
@@ -198,8 +201,11 @@ def test(parole):
     return "Italiano:"+ str(italiano_percentage) +"Inglese:"+str(inglese_percentage)
 
 # Example test phrase
-frase = "benvenuti a casa mia signori. cosa ne pensate del kink dei ratti?"
+frase = "what do you think of england?"
 parole = frase.split()
 
+
+for i in range(0,10):
+    allena(dataset,inputs)
 # Run test and print results
 print(test(parole))
