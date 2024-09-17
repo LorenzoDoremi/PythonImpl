@@ -9,7 +9,7 @@ class pyHash:
         
         self.table[self.hashingFunction(value)] = value
     def read(self, value):
-        stored = self.table[self.hashingFunction(value)];
+        stored = self.table[self.hashingFunction(value)]
         #nell'indirizzo cercato c'è quel valore
         return stored == value 
 

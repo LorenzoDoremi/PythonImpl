@@ -5,7 +5,7 @@ from random import random, randint
 array_di_zeri = numpy.zeros((10))
 
 # media già fatta
-media = numpy.average(array_di_zeri)
+media = numpy.mean(array_di_zeri)
 
 # varianza... una rottura da scrivere da zero
 varianza = numpy.var(array_di_zeri)

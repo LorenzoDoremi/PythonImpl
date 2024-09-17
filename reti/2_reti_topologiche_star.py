@@ -26,7 +26,7 @@ router = {
       "mac": "0",
       "table": []
 }
-
+# in questo caso, il router conoscerà i PC collegati solo una volta che hanno inviato un messaggio attraverso la rete (come nella realtà)
 def arp(mittente, richiesta, router):
      
     # vedo se inserire il nuovo MAC
@@ -41,7 +41,7 @@ def arp(mittente, richiesta, router):
         router["table"].append({"ip": mittente["ip"],"mac": mittente["mac"]})
     
     if(not mac):
-        # chiedi a tutti i computer quale è il loro IP/MAC o aspetta.
+        # qua il router invierebbe a tutti il messaggio per scoprire a chi appartiene l'IP 
         print("wait")
     else:
         print("MAC di",richiesta," = ",mac)

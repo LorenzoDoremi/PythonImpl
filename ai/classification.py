@@ -28,7 +28,7 @@ def distance(item1, item2, keys):
       
     return dist
 
-# versione migliorata. 
+# versione migliorata. (coseno di similarità)
 def distance2(item1, item2, keys):
     magn1 = 0
     magn2 = 0
@@ -42,7 +42,7 @@ def distance2(item1, item2, keys):
    
     return scalar/(magn1*magn2)
 
-
+# k-nearest neighbours
 def classify(items, test, k):
     for i in range(0,len(items)):
         for j in range(i+1,len(items)):

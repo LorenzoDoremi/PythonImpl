@@ -6,6 +6,7 @@ import numpy
 class game: 
     def __init__(self):
         self.monsters = []
+       
    
 
     def add_monster(self, monster):

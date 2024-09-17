@@ -84,7 +84,7 @@ class disjoint_set():
 
 
 # dato un grafo, ritorna il set di archi formante il minimum spanning tree
-def min_spanning_tree(grafo: Grafo):
+def kruskal(grafo: Grafo):
     archi_ordinati = [x for x in grafo.archi]
     set_archi = []
    
@@ -114,7 +114,7 @@ for i in range(0, 20):
 
 rand_connect(grafo, 160)
 
-tree:Arco = min_spanning_tree(grafo)
+tree:Arco = kruskal(grafo)
 print(len(tree))
 
 

@@ -31,6 +31,7 @@ print(matrix)
 #inserisco l'angolo in basso a destra
 path.append(matrix[len(dna2)][len(dna1)])
 
+# backtracking (non completamente dinamico)
 def p(seq1,seq2,matrix,path,curry,currx):
      if(currx != 0 and curry != 0):
          if(seq1[currx-1] == seq2[curry-1]):

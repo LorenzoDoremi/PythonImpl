@@ -16,7 +16,7 @@ print(x)
 x %= 4
 print(x)
 
-x = x**5;
+x = x**5
 print(x)
 
 parola = "ciao!"
