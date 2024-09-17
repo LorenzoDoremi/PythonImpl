@@ -1,19 +1,27 @@
-from tokenize import String
 from PIL import Image
 from numpy import size
 from tkinter import Tk, Canvas, PhotoImage, mainloop
 from math import sin
 import pygame as pygame
-import numpy
+
 
 
 # questo codice, mal programmato, applica l'effetto gradient map di Photoshop.
 
 
+
+# funzione che rimappa un numero in nuovo intervallo
+def remap(n,in1,fin1,in2,fin2):
+   
+    left = (n-in1)*(in2-fin2)/(in1-fin1)
+    return in2+left
+
+# funzioni di supporto non utilizzate 
 def rgbtohex(r, g, b):
     return f'#{r:02x}{g:02x}{b:02x}'
 
 
+# funzioni di supporto non utilizzate 
 def rgbtohexA(color):
     return f'#{color[0]:02x}{color[1]:02x}{color[2]:02x}'
 
@@ -24,8 +32,17 @@ width, height = im.size
 
 pixel_values = list(im.getdata())
 
-pix_gen = [x for x in pixel_values]
-
+# due colori RGB (c1 sostituisce lo scuro, c2 il chiaro )
+c1 = (20,40,0)
+c2 = (0,178,255)
+pix_gen = []
+for p in pixel_values: 
+    #non il modo migliore, ma funziona. (le tinte vengono percepite in maniera diversa dall'occhio)
+    brightness = sum(p)/3
+    color_1 = remap(brightness,0,255,c1[0],c2[0])
+    color_2 = remap(brightness,0,255,c1[1],c2[1])    
+    color_3 = remap(brightness,0,255,c1[2],c2[2])  
+    pix_gen.append((color_1,color_2,color_3))      
 
             
 
@@ -40,7 +57,7 @@ for x in range(0, width):
      
        
         
-        canvas.set_at((x, y), x+y)
+        canvas.set_at((x, y), pix_gen[y*width + x])
       
         
 
@@ -48,10 +65,12 @@ for x in range(0, width):
 
 
 
+start = True
 
-
-while True: # main game loop
+while True : # main game loop
 
     for event in pygame.event.get():
       ""
-    pygame.display.update()
+    if(start):
+        pygame.display.update()
+        start = False
