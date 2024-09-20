@@ -18,6 +18,7 @@ class Device():
          # il messaggio mi riguarda ed è per ARP
          if(dest_ip == self.ip and dest_mac == "ff:ff:ff:ff:ff"):
               return {"mac": self.mac,"arp": True}
+         # ho ricevuto un messaggio ma non per ARP
          elif(dest_ip == self.ip):
                #ho ricevuto un mac e un ip di un computer
                if(payload and payload["mac"] and payload["ip"]):
@@ -62,7 +63,7 @@ pc2 = Device("192.168.1.5","ab:aa:aa:bb:55")
 pc3 = Device("192.168.1.8","ac:aa:aa:bb:99")
 router =Router("192.168.1.254","rr:rr:rr:rr:rr")
 router.devices = [pc1,pc2,pc3]
-pc1.send("192.168.1.5","ff:ff:ff:ff:ff", router)
+# ab:aa:aa:bb:55pc1.send("192.168.1.5","ff:ff:ff:ff:ff", router)
 pc1.send("192.168.1.8","ab:aa:aa:bb:55", router)
 
 print(pc1.arp_table)    

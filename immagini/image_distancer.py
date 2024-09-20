@@ -33,11 +33,14 @@ for url in image_urls:
         print("not found")
     
 
-print(sizes)
+#print(sizes)
 
 test = sizes[0]
+
+
 for i in range(1,len(sizes)):
-    distance = cosine(test, sizes[i])
-    print(distance)
+     #test[0] = primo momento colore dell'immagine test. sizes[i][0] = primo momento colore dell'immagine i-esima
+     distance = (cosine(test[0], sizes[i][0]) + cosine(test[1], sizes[i][1]) + cosine(test[2], sizes[i][2]))/3
+     print(distance)
 
 
