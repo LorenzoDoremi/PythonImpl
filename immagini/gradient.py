@@ -33,8 +33,8 @@ width, height = im.size
 pixel_values = list(im.getdata())
 
 # due colori RGB (c1 sostituisce lo scuro, c2 il chiaro )
-c1 = (20,40,0)
-c2 = (0,178,255)
+c1 = (40,0,0)
+c2 = (180,40,16)
 pix_gen = []
 for p in pixel_values: 
     #non il modo migliore, ma funziona. (le tinte vengono percepite in maniera diversa dall'occhio)

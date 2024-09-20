@@ -1,11 +1,4 @@
-'''
-ABC
-DEF
-DE
 
-
-'''
-# genero un CDC
 class Classe():
     def __init__(self,id,docenti) -> None:
         self.id = id

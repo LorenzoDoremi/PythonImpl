@@ -11,35 +11,36 @@ items = [
     {"nome": "Elisa", "peso": 55},
 ]
 
-def clustering(list, clusters_num, iterations):
+def clustering(items, clusters_num, iterations, key):
     clusters = []
     # creo i cluster iniziali random
     for i in range(0,clusters_num):
         cluster = {"el": [], "total":0, "mean": 0}
-        randomel = list[(int)(random()*len(list))]
+        # appendo il primo oggetto del cluster
+        randomel = items[(int)(random()*len(items))]
         cluster["el"].append(randomel)
-        # inserisco il primo elemento
-        cluster["total"] = randomel["peso"]
-        cluster["mean"] = randomel["peso"]
+        # inserisco i dati del primo, e aggiungo ai cluster
+        cluster["total"] = randomel[key]
+        cluster["mean"] = randomel[key]
         clusters.append(cluster)
     # rieseguo n-volte il processo aggiornando
     for i in range(0, iterations):
-        # per ogni elemento
-        for el in list: 
+        # per ogni elemento da abbinare
+        for el in items: 
             min = float("inf")
             mindex = 0
             # per ogni cluster cerco quello più simile
-            for c in range(0,len(clusters)):
+            for index,cluster in enumerate(clusters):
                 # calcolo quanto gli elementi di un cluster assomigliano all'oggetto
-                dist = abs(clusters[c]["mean"]- el["peso"])
+                dist = abs(cluster["mean"]- el[key])
                 
                 if(dist < min):
                     min = dist 
-                    mindex = c
+                    mindex = index
                    
-            # inserisco un nuovo elemento e aggiorno le informazioni
+            # inserisco un nuovo elemento nel cluster più simile e aggiorno le informazioni
             clusters[mindex]["el"].append(el)
-            clusters[mindex]["total"] += el["peso"]
+            clusters[mindex]["total"] += el[key]
             clusters[mindex]["mean"] =  clusters[mindex]["total"]/len(clusters[mindex]["el"])
       
         # calcolo la media di ogni cluster        
@@ -56,7 +57,7 @@ def clustering(list, clusters_num, iterations):
     return clusters
          
    
-myclusters = clustering(items, 3, 50)
+myclusters = clustering(items, 3, 50, "peso")
 for m in myclusters: 
     print(m,end="\n")
    

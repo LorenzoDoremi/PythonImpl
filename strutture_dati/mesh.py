@@ -55,9 +55,6 @@ def search(curr: Nodo, k, path_length):
       
         if(search(nodo, k, path_length + 1)):
             return True
-    
-        
-    
     return False  
    
 
