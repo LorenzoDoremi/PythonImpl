@@ -33,15 +33,15 @@ width, height = im.size
 pixel_values = list(im.getdata())
 
 # due colori RGB (c1 sostituisce lo scuro, c2 il chiaro )
-c1 = (40,0,0)
-c2 = (180,40,16)
+c1 = (0,0,50)
+c2 = (255,40,16)
 pix_gen = []
 for p in pixel_values: 
     #non il modo migliore, ma funziona. (le tinte vengono percepite in maniera diversa dall'occhio)
     brightness = sum(p)/3
-    color_1 = remap(brightness,0,255,c1[0],c2[0])
-    color_2 = remap(brightness,0,255,c1[1],c2[1])    
-    color_3 = remap(brightness,0,255,c1[2],c2[2])  
+    color_1 = remap(p[0],0,255,c1[0],c2[0])
+    color_2 = remap(p[1],0,255,c1[1],c2[1])    
+    color_3 = remap(p[2],0,255,c1[2],c2[2])  
     pix_gen.append((color_1,color_2,color_3))      
 
             
