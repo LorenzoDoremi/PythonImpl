@@ -18,7 +18,7 @@ for i in  range(0,100):
     
 
 
-test =  { "payload": 200, "ping": 90}
+test =  { "payload": 50000, "ping": 90}
 
 # questa funzione ha un grosso problema. (quale?)
 def distance(item1, item2, keys):
@@ -30,8 +30,10 @@ def distance(item1, item2, keys):
 
 # versione migliorata. (coseno di similarità)
 def distance2(item1, item2, keys):
+    #denominatori
     magn1 = 0
     magn2 = 0
+    #numeratore
     scalar = 0
     for key in keys: 
        magn1 += item1[key]**2 
@@ -42,11 +44,14 @@ def distance2(item1, item2, keys):
    
     return scalar/(magn1*magn2)
 
+
+
 # k-nearest neighbours
 def classify(items, test, k):
     for i in range(0,len(items)):
         for j in range(i+1,len(items)):
             #metto in ordine tutti gli elementi in base alla distanza dall'elemento test
+            # O(N^2)
             if(distance2(items[i], test, ["payload", "ping"]) > distance2(items[j],test, ["payload", "ping"])):
                 
                 items[i],items[j] = items[j], items[i]
@@ -62,5 +67,5 @@ def classify(items, test, k):
            
                 
 
-classify(items,test, 20)
+classify(items,test, 50)
 
