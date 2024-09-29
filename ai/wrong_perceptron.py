@@ -55,7 +55,7 @@ def train(data, w1, w2, w3, iterations, learning):
 
 
 
-print("Trained weights:", w1, w2, w3)
+
 
 # Guess function
 def guess(a, b, c, w1, w2, w3):
@@ -64,8 +64,8 @@ def guess(a, b, c, w1, w2, w3):
 
 x = []
 y = []
-'''    
-for i in range(0,1000,100):
+  
+for i in range(0,10000,1000):
     # Train the model
     w1, w2, w3 = train(filtered, w1, w2, w3, i, learning)
     # Compare the actual solution to the predicted solution
@@ -74,18 +74,25 @@ for i in range(0,1000,100):
     actual = eq2(d["a"], d["b"], d["c"])
     predicted = guess(d["a"], d["b"], d["c"], w1, w2, w3)
     x.append(i)
-    y.append(abs((actual-predicted)/actual))
+    y.append(abs((actual-predicted)))
     
-
+print("Trained weights:", w1, w2, w3)
 plt.plot(x,y)
 plt.plot(x,[sum(y)/len(y) for i in x])
 plt.show()
-'''
+'''  
 
 train(data,w1,w2,w3,1000,learning)
 
 d = filtered[random.randint(0, len(filtered) - 1)]
-plt.plot([i for i in range(-6,6)], [d["a"]*i**2 + d["b"]*i + d["c"] for i in range(-6,6)])
-plt.plot([i for i in range(-6,6)], [d["a"]*w1+ d["b"]*w2 + d["c"]*w3 for i in range(-6,6)])
-plt.plot([i for i in range(-6,6)], [0 for i in range(-6,6)])
-plt.show()
+
+sol = eq2(d["a"], d["b"], d["c"])
+predicted = guess(d["a"], d["b"], d["c"], w1, w2, w3)
+
+print("soluzione = ",sol," previsione = ",predicted)
+
+
+plt.plot([i for i in range(-20,20)], [d["a"]*i**2 + d["b"]*i + d["c"] for i in range(-20,20)])
+plt.step([d["a"]*w1+ d["b"]*w2 + d["c"]*w3 for i in range(-20,20)], [i for i in range(-20,20)])
+plt.plot([i for i in range(-20,20)], [0 for i in range(-20,20)])
+plt.show()'''
