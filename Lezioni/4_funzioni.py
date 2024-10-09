@@ -18,9 +18,13 @@ def area_triangolo(b,h):
 base = 12
 altezza = 8
 area = area_triangolo(base,altezza)
+print(area)
 
 
+def stampa_virus():
+    print("VIRUS")
 
+stampa_virus()
 
 
 
