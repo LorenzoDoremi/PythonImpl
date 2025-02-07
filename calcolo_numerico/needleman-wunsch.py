@@ -3,9 +3,9 @@ import numpy
 
 #sub-optimal needleman-wunsh algorithm (missing the multiple path search.)
 
-dna1 = "tatga"
+dna1 = "tatgtatgatatgatatga"
 
-dna2 = "tacga"
+dna2 = "tacgaatatgatatgatcg"
 matrix = numpy.zeros((len(dna2)+1,len(dna1)+1))
 matrix[0] = [-i*2 for i in range(0,len(dna1)+1)]
 for i in range(0,len(dna2)+1):
