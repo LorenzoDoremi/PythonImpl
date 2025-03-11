@@ -7,6 +7,7 @@ generi = ["rock","jazz","metal","alternative","heavy metal","hard rock","grunge"
 
 l = len(generi)
 
+# genero canzoni casuali
 songs = []
 for i in range(0,20):
     r = int(random.uniform(1,4))
@@ -17,12 +18,13 @@ for i in range(0,20):
 
 bests = []
 song = {"id": 898, "generi": ["grunge","heavy metal","rock"]}
+# confronto la canzone test con quelle generate.
 for song_i in songs:
     union = set(song["generi"]) | set(song_i["generi"])
     intersection = set(song["generi"]) & set(song_i["generi"])
     jaccard = len(intersection)/len(union)
     bests.append({"s": song_i, "sim": jaccard})
-
+# prendo le migliori 5 
 bests.sort(key = lambda d: d["sim"])
 # print(bests)
 best_5 = bests[-5:]

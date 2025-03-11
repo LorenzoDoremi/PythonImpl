@@ -122,7 +122,7 @@ print(mean_distances)
 
 
 
-
+'''
 
 pygame.init()
 pygame.display.set_caption('Stars')
@@ -133,3 +133,4 @@ while True:  # main game loop
     for event in pygame.event.get():
         ""
     pygame.display.update()
+'''

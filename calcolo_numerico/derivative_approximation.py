@@ -8,11 +8,12 @@ def derivative(f, point, iterations):
     # stessa cosa ma a destra
     m2 = 0
     d = 0
-
-    for i in range(1,iterations):
-        m1 = (f(point - 1/i) - f(point)) / (( point - 1/i) - point)
-        m2 = (f(point + 1/i) - f(point)) / (( point + 1/i) - point)
-        d = (m1+m2)/2
+    
+    i = 1/iterations
+    
+    m1 = (f(point - 1/i) - f(point)) / (( point - 1/i) - point)
+    m2 = (f(point + 1/i) - f(point)) / (( point + 1/i) - point)
+    d = (m1+m2)/2
     return d
 
 
